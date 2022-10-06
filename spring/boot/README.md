@@ -41,7 +41,9 @@
 - `@Component` used on a class to declare it to the IoC container
 - `@Bean` used on a method, only on classes using `@Configuration`
 - `@Autowired` allows to inject beans through constructors, setters or fields
-
+  - Matching by the type (default)
+  - Matching by the field name
+  - Matching with additional annotations (`@Qualifier`)
 
 ## Code
 
@@ -83,18 +85,41 @@ package ch.inagua.codes.babel;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+public interface GreetingsInterface {
+  String greet();
+}
+
 @Component
-public class Greetings {
+public class Greetings implements GreetingsInterface {
   public String greet() {
     return "HiJack!";
+  }
+}
+
+@Component
+public class FriendlyGreetings implements GreetingsInterface {
+  @Override
+  public String greet() {
+    return "Dear Jack!";
   }
 }
 
 @RestController
 public class HelloWorldController {
   @Autowired
-  Greetings greetings;
+  Greetings greetings;                  // Matching the type => Greetings
 
+  @Autowired
+  GreetingsInterface greetings;         // Matching the name of the field => Greetings
+
+  @Autowired
+  GreetingsInterface friendlyGreetings; // Matching the name of the field => FriendlyGreetings
+
+  @Autowired
+  // @Qualifier(value="friendlyGreetings")
+  GreetingsInterface greetings666;      // Fail!
+                                        // Or use @Component(value=greetings666) in the target class definition
+                                        // Or use @Qualifier(value="friendlyGreetings") here / above
   @RequestMapping("/hello")
   public String getHello() {
     return this.greetings.greet();

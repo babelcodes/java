@@ -1,15 +1,23 @@
-package ch.inagua.codes.babel.ioc.scope;
+package ch.inagua.codes.babel.configuration;
 
+import ch.inagua.codes.babel.ioc.scope.SGreetingsBase;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.stereotype.Component;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-public class SFriendlyGreetings extends SGreetingsBase implements InitializingBean, DisposableBean {
+public class CCFriendlyGreetings extends SGreetingsBase implements InitializingBean, DisposableBean {
+
+    private CCDatabaseConfiguration databaseConfiguration;
+
+    public CCFriendlyGreetings(CCDatabaseConfiguration databaseConfiguration) {
+        this.databaseConfiguration = databaseConfiguration;
+    }
+
     @Override
     public String greet() {
-        return "Dear Jack! " + this.count++;
+        return "Dear Jack! " + this.count++ + " " + this.databaseConfiguration.getUrl() + " - " + this.databaseConfiguration.getUsername();
     }
 
     @Override
@@ -26,6 +34,7 @@ public class SFriendlyGreetings extends SGreetingsBase implements InitializingBe
     public void myPostConstruct() {
         System.out.println(">> @PostConstruct");
     }
+
     @PreDestroy
     public void myPreDestroy() {
         System.out.println(">> @PreDestroy");

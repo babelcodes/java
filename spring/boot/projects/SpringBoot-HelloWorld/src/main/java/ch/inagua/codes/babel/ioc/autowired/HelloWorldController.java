@@ -1,8 +1,5 @@
-package ch.inagua.codes.babel;
+package ch.inagua.codes.babel.ioc.autowired;
 
-import ch.inagua.codes.babel.ioc.FriendlyGreetings;
-import ch.inagua.codes.babel.ioc.Greetings;
-import ch.inagua.codes.babel.ioc.GreetingsInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -38,12 +38,14 @@
 
 ### Spring Beans
 - Customized user objects managed by the IoC container
-- `@Component` used on a class to declare it to the IoC container
-- `@Bean` used on a method, only on classes using `@Configuration`
+- `@Component` used on a class to declare it to the IoC container: the class becomes a managed bean
+- `@Bean` used on a method to defined its result as a bean, only on classes using `@Configuration`
+- By default, the bean name is the same as the method
 - `@Autowired` allows to inject beans through constructors, setters or fields
   - Matching by the type (default)
   - Matching by the field name
   - Matching with additional annotations (`@Qualifier`)
+
 
 ## Code
 

@@ -1,9 +1,9 @@
-package ch.inagua.codes.babel.ioc;
+package ch.inagua.codes.babel.ioc.configuration;
 
 import org.springframework.stereotype.Component;
 
 @Component
-public class FriendlyGreetings implements GreetingsInterface {
+public class CFriendlyGreetings implements CGreetingsInterface {
     @Override
     public String greet() {
         return "Dear Jack!";

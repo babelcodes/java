@@ -1,4 +1,4 @@
-package ch.inagua.codes.babel.ioc;
+package ch.inagua.codes.babel.ioc.autowired;
 
 import org.springframework.stereotype.Component;
 

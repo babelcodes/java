@@ -45,7 +45,10 @@
   - Matching by the type (default)
   - Matching by the field name
   - Matching with additional annotations (`@Qualifier`)
-
+- 6 scopes
+  - Singleton (by default): only a single instance in a same application context
+  - Prototype: a new instance each time a bean is asked to the container
+  - Web: Request, Session, Global Session and Application (ServletContext)
 
 ## Code
 

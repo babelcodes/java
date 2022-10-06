@@ -14,6 +14,23 @@
 - [Maven](../../maven) as build and dependencies management tool
 
 
+## Concepts
+
+### Inversion Of Control (IoC)
+
+- Uncouple the execution of a task from its definition
+- Separate the **WHAT** from the **WHEN**
+
+### Dependency Injection (DI)
+
+- A way of doing IoC
+- By injecting its dependencies to an object
+- Different means:
+  - Setters
+  - Constructors
+  - Interfaces
+  - Field Based
+
 ## Code
 
 ### Application

@@ -1,13 +1,22 @@
 package ch.inagua.codes.babel.ioc;
 
-public class Document {
+interface DocumentInterface {
+    String getPage();
+}
+
+public class Document implements DocumentInterface {
+    @Override
     public String getPage() {
         return "Page!";
     }
 }
 
 class Printer {
-    Document document = new Document();
+    private DocumentInterface document;
+
+    public Printer(DocumentInterface document) {
+        this.document = document;
+    }
 
     public void print() {
         System.out.println(this.document.getPage());
@@ -15,7 +24,8 @@ class Printer {
 }
 
 class Factory {
-    Printer p = new Printer();
+    Document document = new Document();
+    Printer p = new Printer(document);
 
     void produce() {
         p.print();

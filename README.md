@@ -4,7 +4,7 @@
 - [Versions Managers](./managers)
 
 ## Java features
-- [Java features](./java)
+- [Java features](./features)
 
 ## Building
 - [Maven](./maven)

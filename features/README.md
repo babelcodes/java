@@ -2,7 +2,7 @@
 
 - Part of [Java](../README.md)
 
-- By version:
+By version:
 - https://github.com/babelcodes/java/labels/Version
 - [11](./versions/11.md)
 

@@ -3,6 +3,9 @@
 ## Versions Managers
 - [Versions Managers](./managers)
 
+## Java features
+- [Java features](./java)
+
 ## Building
 - [Maven](./maven)
 

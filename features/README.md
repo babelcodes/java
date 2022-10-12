@@ -13,4 +13,5 @@ By API:
 - [HttpClient](./api/httpclient.md)
 - [Nest](./api/nest.md) based access control
 - [Predicate](./api/predicate.md)
+- [Stream](./api/stream.md)
 - [String](./api/string.md)
